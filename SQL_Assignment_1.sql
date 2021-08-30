@@ -41,5 +41,23 @@ values (1,"Sony"),
 SELECT * from Product ;
 
 SELECT * from Manufactures ;
+
+# 1 Select the names of all the products in the store
+select Name from Product ;
+
+# 2 Select the names and the prices of all the products in the store
+SELECT Name, Price from Product ;
+
+# 3 Select the name of the products with a price less than or equal to $200.
+select Name , Price from Product  where Price <=200;
+
+# 4 Select all the products with a price between $60 and $120.
+SELECT Name, Price from Product where Price BETWEEN 60 and 120 ;
+
+# 5 Select the name and price in cents (i.e. the price must be multiplied by 100).
+SELECT Name,Price*100 from Product ;
+
+# 6 Compute the average price of all the products.
+SELECT AVG(Price) from Product ;
 	
 
