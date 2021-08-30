@@ -71,6 +71,32 @@ SELECT COUNT(*) from Product WHERE Price >= 180;
 #    and sort first by price (in descending order), and then by name (in ascending order).
 SELECT Name, Price from Product WHERE Price >= 180 ORDER BY Price DESC, Name ASC;
 
+# 10.Select all the data from the products, including all the data for each product's manufacturer.
+select * from Product inner join Manufactures ;
 
+# 11.Select the product name, price, and manufacturer name of all the products.
+SELECT p.Name, p.Price, m.Name from Product p 
+join Manufactures m 
+on p.Code = m.Code;
+
+# 12.Select the average price of each manufacturer's products, showing only the manufacturer's code.
+SELECT AVG(p.Price) Avarage_Price, p.Manufacturer from Product p 
+join Manufactures m 
+GROUP BY p.Manufacturer ;
+
+
+SELECT * from Product ;
+SELECT * from Manufactures ;
+
+# 13.Select the average price of each manufacturer's products, showing the manufacturer's name.
+
+# 14.Select the names of manufacturer whose products have an average price larger than or equal to $150.
+# 15.Select the name and price of the cheapest product.
+# 16.Select the name of each manufacturer along with the name and price
+# of its most expensive product.
+# 17. Add a new product: Loudspeakers, $70, manufacturer 2.
+# 18.Update the name of product 8 to "Laser Printer".
+# 19.Apply a 10% discount to all products.
+# 20.Apply a 10% discount to all products with a price larger than or equal to $120.
 	
 
