@@ -3,3 +3,23 @@ You work as an IT Assistant accessing the company database, fulfilling requests 
 Your job involves writing and testing SQL scripts to provide the information and services required. 
 
 The following requests have been received today, via e-mail, from the Accounting and Personnel Departments and the IT Manager.
+
+Accounting Department Requirements:
+
+Request 1
+List the last name, first name and employee number of all programmers who were hired on or before 21 May 1991 sorted in ascending order of last name.
+
+Request 2
+List the department number, last name and salary of all employees who were hired between 16/09/87 and 12/05/96 sorted in ascending order of last name within department number.
+
+Request 3
+List all the data for each job where the average salary is greater than 15000 sorted in descending order of the average salary.
+
+Request 4
+List the last name, first name, job id and commission of employees who earn commission sorted in ascending order of first name. (Commision=Annual_Salary* Commission_Percent)
+
+Request 5
+Which Job Title are found in the IT and Sales departments?
+
+Request 6
+List the last name of all employees in department no 10 and 40 together with their monthly salaries (rounded to 2 decimal places), sorted in ascending order of last name.
