@@ -59,5 +59,18 @@ SELECT Name,Price*100 from Product ;
 
 # 6 Compute the average price of all the products.
 SELECT AVG(Price) from Product ;
+
+
+# 7. Compute the average price of all products with manufacturer code equal to 2.
+SELECT AVG(Price) from Product where Manufacturer = 2;
+
+# 8. Compute the number of products with a price larger than or equal to $180.
+SELECT COUNT(*) from Product WHERE Price >= 180;
+
+# 9. Select the name and price of all products with a price larger than or equal to $180,
+#    and sort first by price (in descending order), and then by name (in ascending order).
+SELECT Name, Price from Product WHERE Price >= 180 ORDER BY Price DESC, Name ASC;
+
+
 	
 
