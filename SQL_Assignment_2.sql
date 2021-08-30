@@ -125,22 +125,33 @@ WHERE e.Department = (
 
 
 # 15.Add a new department called "Quality Assurance", with a budget of $40,000 and departmental code 11.
+INSERT into Department values (11,'Quality Assurance',40000);
 
 
 # 16.And Add an employee called "Mary Moore" in that department, with SSN 847-21-9811.
+INSERT into Employee values (847219811,'Mary','Moore',11);
 
 
 # 17.Reduce the budget of all departments by 10%.
+SELECT * , Budget - Budget * 0.1 as Reduce_Budget from Department;
 
 
 # 18.Reassign all employees from the Research department (code 77) to the IT department (code 14).
+UPDATE Employee set Department = 14 where Department = 77;
 
 
 # 19.Delete from the table all employees in the IT department (code 14). 
+DELETE FROM Employee WHERE Department = 14;
 
 
-# 20.Delete from the table all employees who work in departments with a budget greater than or equal to $60,000. 
+# 20.Delete from the table all employees who work in departments with a budget less than or equal to $60,000. 
+DELETE e.*, d.* FROM Employee e 
+join Department d
+on e.Department = d.Code
+WHERE d.Budget <= 60000;
 
+SELECT * FROM Employee ;
+SELECT * FROM Department;
 
 
 
