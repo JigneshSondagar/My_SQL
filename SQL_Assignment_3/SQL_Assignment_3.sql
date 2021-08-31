@@ -93,36 +93,58 @@ ORDER BY e.Last_Name ASC ;
 # Request 2
 # List the department number, last name and salary of all employees who were hired between 16/09/87 and 12/05/96 sorted 
 # in ascending order of last name within department number.
-SELECT e.Last_Name, e.Annual_Salary, e.Department_No from Employee e 
+SELECT e.Department_No, e.Last_Name, e.Annual_Salary from Employee e 
 WHERE e.Hire_Date BETWEEN '1987-09-16' AND '1996-05-12'
 ORDER BY e.Last_Name ASC , e.Department_No ASC ;
 
 
 # Request 3
 # List all the data for each job where the average salary is greater than 15000 sorted in descending order of the average salary.
-SELECT * from Employee e ;
-SELECT * from Job j;
-select * from Department d ;
+SELECT j.*, e.Annual_Salary,(SELECT AVG(e.Annual_Salary) from Employee e) as Avrage_salary from Job j
+join Employee e 
+on j.Job_id = e.Job_id 
+WHERE Annual_Salary  > 15000
+ORDER BY Avrage_salary DESC ; 
 
 
 # Request 4
-# List the last name, first name, job id and commission of employees who earn commission sorted in ascending order of first name. 
-# (Commision=Annual_Salary* Commission_Percent)
+# List the last name, first name, job id and commission of employees who earn commission sorted in 
+# ascending order of first name. (Commision=Annual_Salary* Commission_Percent)
+SELECT e.Last_Name, e.First_Name, e.Job_id, e.Commision_Percent from Employee e 
+WHERE e.Commision_Percent > 0
+ORDER BY e.First_Name ASC ;
+
 
 # Request 5
 # Which Job Title are found in the IT and Sales departments?
+SELECT j.Job_title from Job j
+join Department d 
+on j.Department_no = d.Department_no 
+WHERE d.Department_Name = 'IT' OR d.Department_Name = 'Sales';
+
 
 # Request 6
 # List the last name of all employees in department no 10 and 40 together with their monthly salaries (rounded to 2 decimal places), 
 # sorted in ascending order of last name.
+SELECT e.Last_Name,ROUND(e.Annual_Salary / 12,2) as Monthly_salary from Employee e where
+e.Department_No = '10' or e.Department_No = '40'
+ORDER BY e.Last_Name ASC ;
+
 
 # Request 7
-# Show the Annual Salary salaries displayed with no decimal places.
+# Show the total Annual Salary salaries for one month displayed with no decimal places.
+SELECT ROUND(SUM(e.Annual_Salary/12)) as Monthly_Salary from Employee e ;
 
 # ******** Personnel Department Requirements ********
 
 # Request 8
 # Show the total number of employees. 
+
+SELECT * from Employee e ;
+SELECT * from Job j;
+select * from Department d ;
+
+SELECT COUNT(e.Employee_no) as Total_Employees from Employee e ;
 
 # Request 9
 # List the department number, department name and the number of employees for each department that has more than 
