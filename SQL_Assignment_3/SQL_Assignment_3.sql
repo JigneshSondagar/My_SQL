@@ -93,11 +93,17 @@ ORDER BY e.Last_Name ASC ;
 # Request 2
 # List the department number, last name and salary of all employees who were hired between 16/09/87 and 12/05/96 sorted 
 # in ascending order of last name within department number.
-SELECT * from Employee e ;
-SELECT * from Job ;
+SELECT e.Last_Name, e.Annual_Salary, e.Department_No from Employee e 
+WHERE e.Hire_Date BETWEEN '1987-09-16' AND '1996-05-12'
+ORDER BY e.Last_Name ASC , e.Department_No ASC ;
+
 
 # Request 3
 # List all the data for each job where the average salary is greater than 15000 sorted in descending order of the average salary.
+SELECT * from Employee e ;
+SELECT * from Job j;
+select * from Department d ;
+
 
 # Request 4
 # List the last name, first name, job id and commission of employees who earn commission sorted in ascending order of first name. 
