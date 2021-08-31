@@ -38,8 +38,6 @@ CREATE table Job(
 	Job_title varchar(20),
 	Department_no int(3));
 
-
-
 insert into Job (Job_id,Job_title,Department_no)
 values
 	(20101,"Manager",20),
@@ -135,47 +133,91 @@ ORDER BY e.Last_Name ASC ;
 # Show the total Annual Salary salaries for one month displayed with no decimal places.
 SELECT ROUND(SUM(e.Annual_Salary/12)) as Monthly_Salary from Employee e ;
 
+
 # ******** Personnel Department Requirements ********
+
 
 # Request 8
 # Show the total number of employees. 
-
-SELECT * from Employee e ;
-SELECT * from Job j;
-select * from Department d ;
-
 SELECT COUNT(e.Employee_no) as Total_Employees from Employee e ;
+
 
 # Request 9
 # List the department number, department name and the number of employees for each department that has more than 
-# 2 employees grouping by department number anddepartment name.
+# 2 employees grouping by department number and department name.
+SELECT d.Department_no, d.Department_Name, COUNT(e.Employee_no) as Total_Employee
+from Department d 
+join Employee e 
+on e.Department_No = d.Department_no 
+GROUP BY d.Department_Name, d.Department_no 
+HAVING Total_Employee > 2;
+
 
 # Request 10
 # List the department number, department name and the number of employees for the department that has the highest 
 # number of employees using appropriate grouping.
+SELECT d.Department_no, d.Department_Name, COUNT(DISTINCT  e.First_Name) as Total_Employee
+from Department d 
+join Employee e 
+on e.Department_No = d.Department_no 
+GROUP BY d.Department_Name,d.Department_no 
+ORDER BY Total_Employee DESC ;
+
 
 # Request 11
 # List the department number and name for all departments where no programmers work.
+SELECT DISTINCT j.Department_no, d.Department_Name from Job j 
+join
+Department d 
+on j.Department_no = d.Department_no 
+where j.Job_title != 'Programmer' ;
+
 
 # Request 12
 # Update all the Annual salaries for jobs with an increase of 1000.
+create table Employee_Copy select * from Employee e ;
+UPDATE Employee_Copy set Annual_Salary = Annual_Salary + 1000;
+SELECT * from Employee_Copy ;
+
 
 # Request 13
 # List all the data for jobs sorted in ascending order of job id.
+SELECT * FROM Job j
+order by j.Job_id ASC ;
 
 # Request 14
 # The job history for employee number 102 is no longer required. Delete this record.
+DELETE FROM Employee_Copy  WHERE Employee_no = '102';
+SELECT * from Employee_Copy;
+
 
 # Request 15
 # Prepare a table with percentage raises, employee numbers and old and new salaries. 
 # Employees in departments 20 and 10 are given a 5% rise, employees in departments 50, 90 and 30 are given a 10% rise and 
 # employees in other departments are not given a rise.
+create view Increment_table as select employee_no, 
+IF(department_no in (20,10),5,
+If(department_no in (50,90,30),10,0)) percentage_raise,
+annual_salary old_annual_salary,
+round(annual_salary*(1+(IF(department_no in (20,10),5,
+If(department_no in (50,90,30),10,0))*0.01)),2) new_annual_salary
+from Employee_Copy;
+
+select * from Increment_table;
+
 
 # ******** IT Manager Requirements ********
 
+
 # Request 16
 # Create a new view for manager’s details only using all the fields from the employee table.
+create view manager_table as select * from Job where job_title like 'Manager%';
+select * from manager_table;
+
+CREATE view Programmer_Table as select * from Job where Job_title like 'Programmer';
+SELECT * from programmer_table ;
+
 
 # Request 17
 # Show all the fields and all the managers using the view for managers sorted in ascending order of employee number.
-
+select * from manager_table mt ;
