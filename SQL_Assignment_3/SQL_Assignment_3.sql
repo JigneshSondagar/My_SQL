@@ -56,11 +56,12 @@ values
 
 SELECT * from Job;
 
-CREATE table Department_3(
+
+CREATE table Department(
 	Department_no int(3),
 	Department_Name varchar(15));
 
-insert into Department_3(Department_no,Department_Name)
+insert into Department(Department_no,Department_Name)
 values
 	(20,"Sales"),
 	(50,"Marketing"),
@@ -73,4 +74,80 @@ values
 	(90,"Finance"),
 	(10,"IT");
 
-SELECT * from Department_3 ;
+SELECT * from Department ;
+
+
+# ******** Accounting Department Requirements ********
+
+# Request 1
+# List the last name, first name and employee number of all programmers who were hired on or 
+# before 21 May 1991 sorted in ascending order of last name.
+SELECT e.Employee_no, e.First_Name, e.Last_Name, j.Job_title from Employee e 
+join Job j 
+on e.Job_id = j.Job_id
+where j.Job_title = 'Programmer' and 
+e.Hire_Date <= '1991-05-21'
+ORDER BY e.Last_Name ASC ;
+
+
+# Request 2
+# List the department number, last name and salary of all employees who were hired between 16/09/87 and 12/05/96 sorted 
+# in ascending order of last name within department number.
+SELECT * from Employee e ;
+SELECT * from Job ;
+
+# Request 3
+# List all the data for each job where the average salary is greater than 15000 sorted in descending order of the average salary.
+
+# Request 4
+# List the last name, first name, job id and commission of employees who earn commission sorted in ascending order of first name. 
+# (Commision=Annual_Salary* Commission_Percent)
+
+# Request 5
+# Which Job Title are found in the IT and Sales departments?
+
+# Request 6
+# List the last name of all employees in department no 10 and 40 together with their monthly salaries (rounded to 2 decimal places), 
+# sorted in ascending order of last name.
+
+# Request 7
+# Show the Annual Salary salaries displayed with no decimal places.
+
+# ******** Personnel Department Requirements ********
+
+# Request 8
+# Show the total number of employees. 
+
+# Request 9
+# List the department number, department name and the number of employees for each department that has more than 
+# 2 employees grouping by department number anddepartment name.
+
+# Request 10
+# List the department number, department name and the number of employees for the department that has the highest 
+# number of employees using appropriate grouping.
+
+# Request 11
+# List the department number and name for all departments where no programmers work.
+
+# Request 12
+# Update all the Annual salaries for jobs with an increase of 1000.
+
+# Request 13
+# List all the data for jobs sorted in ascending order of job id.
+
+# Request 14
+# The job history for employee number 102 is no longer required. Delete this record.
+
+# Request 15
+# Prepare a table with percentage raises, employee numbers and old and new salaries. 
+# Employees in departments 20 and 10 are given a 5% rise, employees in departments 50, 90 and 30 are given a 10% rise and 
+# employees in other departments are not given a rise.
+
+# ******** IT Manager Requirements ********
+
+# Request 16
+# Create a new view for manager’s details only using all the fields from the employee table.
+
+# Request 17
+# Show all the fields and all the managers using the view for managers sorted in ascending order of employee number.
+
