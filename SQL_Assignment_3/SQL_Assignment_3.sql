@@ -37,3 +37,40 @@ CREATE table Job(
 	Job_id int(3),
 	Job_title varchar(20),
 	Department_no int(3));
+
+
+
+insert into Job (Job_id,Job_title,Department_no)
+values
+	(20101,"Manager",20),
+	(200105,"Product Excutive",50),
+	(200107,"Programmer",10),
+	(200187,"Exceutive",40),
+	(200976,"Manager",30),
+	(200765,"Accountant",0),
+	(200234,"Programmer",10),
+	(200546,"Exceutive",40),
+	(200123,"Account Executive",90),
+	(200548,"Support Assistant",10);
+
+
+SELECT * from Job;
+
+CREATE table Department_3(
+	Department_no int(3),
+	Department_Name varchar(15));
+
+insert into Department_3(Department_no,Department_Name)
+values
+	(20,"Sales"),
+	(50,"Marketing"),
+	(10,"IT"),
+	(40,"Admin"),
+	(30,"HR"),
+	(0,"Finance"),
+	(10,"IT"),
+	(40,"Admin"),
+	(90,"Finance"),
+	(10,"IT");
+
+SELECT * from Department_3 ;
