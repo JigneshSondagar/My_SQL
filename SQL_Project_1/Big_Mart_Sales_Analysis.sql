@@ -115,22 +115,38 @@ group by bm.Outlet_Location_Type
 order by No_of_item ASC ;
 
 # 26. WRITE a query to show count NO. OF item BY Outlet_Type AND ordered it IN descending
-
+SELECT bm.Outlet_Type ,COUNT(bm.Outlet_Type) as No_of_item FROM Big_mart bm 
+group by bm.Outlet_Type  
+order by No_of_item DESC ;
 
 # 27. WRITE a query to show count of item BY Outlet_Location_Type AND ordered it IN descending
-
+SELECT bm.Outlet_Location_Type ,COUNT(bm.Outlet_Location_Type) as No_of_item FROM Big_mart bm 
+group by bm.Outlet_Location_Type  
+order by No_of_item DESC ;
 
 # 28. WRITE a query to show maximum MRP BY Item_Type
+SELECT bm.Item_Type, MAX(bm.Item_MRP) as Max_MRP  
+from Big_mart bm 
+group by bm.Item_Type ;
 
 
 # 29. WRITE a query to show minimum MRP BY Item_Type
+SELECT bm.Item_Type, MIN(bm.Item_MRP) as Min_MRP  
+from Big_mart bm 
+group by bm.Item_Type ;
 
 
 # 30. WRITE a query to show minimum MRP BY Outlet_Establishment_Year AND ordered it IN descending
-
+SELECT bm.Outlet_Establishment_Year , MIN(bm.Item_MRP) as Min_MRP  
+from Big_mart bm 
+group by bm.Outlet_Establishment_Year 
+ORDER by Min_MRP DESC ;
 
 # 31. WRITE a query to show maximum MRP BY Outlet_Establishment_Year AND ordered IN descending
-
+SELECT bm.Outlet_Establishment_Year , MAX(bm.Item_MRP) as Max_MRP  
+from Big_mart bm 
+group by bm.Outlet_Establishment_Year 
+ORDER by Max_MRP DESC ;
 
 # 32. WRITE a query to show average MRP BY Outlet_Size AND ordered IN descending
 
