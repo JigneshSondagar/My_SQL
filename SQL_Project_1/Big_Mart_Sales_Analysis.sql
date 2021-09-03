@@ -111,7 +111,7 @@ order by No_of_item ASC ;
 
 # 25. WRITE a query to show count NO. OF item BY Outlet_Location_Type and ORDER it in ascending
 SELECT bm.Outlet_Location_Type ,COUNT(bm.Outlet_Location_Type) as No_of_item FROM Big_mart bm 
-group by bm.Outlet_Location_Type 
+group by bm.Outlet_Location_Type  
 order by No_of_item ASC ;
 
 # 26. WRITE a query to show count NO. OF item BY Outlet_Type AND ordered it IN descending
