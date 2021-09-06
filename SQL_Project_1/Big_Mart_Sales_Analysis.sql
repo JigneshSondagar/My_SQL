@@ -172,7 +172,11 @@ FROM Big_mart
 GROUP BY Outlet_Type order by Max_MRP asc;
 
 
-# 36. WRITE a query to show maximum Item_Weight BY Item_Type 
+# 36. WRITE a query to show maximum Item_Weight BY Item_Type AND ORDERED in DESCENDING
+SELECT Item_Type , max(Item_Weight)max_weight 
+FROM Big_mart  
+GROUP BY Item_Type  
+ORDER BY max_weight DESC;
 
 
 # 37. WRITE a query to show maximum Item_Weight BY Outlet_Establishment_Year
