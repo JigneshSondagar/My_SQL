@@ -186,7 +186,14 @@ GROUP BY Outlet_Establishment_Year
 ORDER BY Max_weight ASC; 
 
 
-# 38. WRITE a query to show minimum Item_Weight BY Outlet_Type 39.WRITE a query to show average Item_Weight BY Outlet_Location_Type ORDER BY descending
+# 38. WRITE a query to show minimum Item_Weight BY Outlet_Type AND ORDERED in DESCENDING
+SELECT Outlet_Type , min(Item_Weight) Min_weight  
+FROM Big_mart  
+GROUP BY Outlet_Type  
+ORDER BY min_weight desc; 
+
+
+# 39.WRITE a query to show average Item_Weight BY Outlet_Location_Type ORDER BY descending
 
 
 # 40. WRITE a query to show maximum Item_Outlet_Sales BY Item_Type 
