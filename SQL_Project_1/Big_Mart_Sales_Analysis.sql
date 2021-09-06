@@ -194,6 +194,10 @@ ORDER BY min_weight desc;
 
 
 # 39.WRITE a query to show average Item_Weight BY Outlet_Location_Type ORDER BY descending
+SELECT Outlet_Location_Type , avg(Item_Weight)Average_weight  
+FROM Big_mart  
+GROUP BY Outlet_Location_Type  
+ORDER BY Average_weight desc;
 
 
 # 40. WRITE a query to show maximum Item_Outlet_Sales BY Item_Type 
