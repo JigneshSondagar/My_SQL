@@ -149,9 +149,15 @@ group by bm.Outlet_Establishment_Year
 ORDER by Max_MRP DESC ;
 
 # 32. WRITE a query to show average MRP BY Outlet_Size AND ordered IN descending
+SELECT  Outlet_Size, avg(Item_MRP)Average_MRP  
+FROM Big_mart  
+GROUP BY Outlet_Size order by Average_MRP desc;
 
 
-# 33. WRITE a query to show average MRP BY Outlet_Size
+# 33. WRITE a query to show average MRP BY Outlet_Size AND ordered IN descending
+SELECT  Outlet_Size, avg(Item_MRP)Average_MRP  
+FROM Big_mart  
+GROUP BY Outlet_Size order by Average_MRP desc;
 
 
 # 34. WRITE a query to show Average MRP BY Outlet_Type AND ordered IN ascending
