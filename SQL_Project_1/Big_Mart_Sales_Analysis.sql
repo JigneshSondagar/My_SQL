@@ -166,7 +166,10 @@ FROM Big_mart
 GROUP BY Outlet_Type order by Average_MRP asc;
 
 
-# 35. WRITE a query to show maximum MRP BY Outlet_Type 
+# 35. WRITE a query to show maximum MRP BY Outlet_Type AND ordered IN ascending
+SELECT  Outlet_Type, ROUND(max(Item_MRP),2) Max_MRP  
+FROM Big_mart  
+GROUP BY Outlet_Type order by Max_MRP asc;
 
 
 # 36. WRITE a query to show maximum Item_Weight BY Item_Type 
