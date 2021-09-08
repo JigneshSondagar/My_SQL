@@ -208,9 +208,14 @@ GROUP BY Item_Type;
 
 
 # 41.WRITE a query to show minimum Item_Outlet_Sales BY Item_Type 
-
+SELECT  Item_Type, min(Item_Outlet_Sales) Min_sales  
+FROM Big_mart  
+GROUP BY Item_Type;
 
 # 42.WRITE a query to show minimum Item_Outlet_Sales BY Outlet_Establishment_Year
+SELECT  Outlet_Establishment_Year, min(Item_Outlet_Sales)Min_sales  
+FROM Big_mart  
+GROUP BY Outlet_Establishment_Year order by Min_sales desc;
 
 
 # 43.WRITE a query to show maximum Item_Outlet_Sales BY Outlet_Establishment_Year ordered BY descending
