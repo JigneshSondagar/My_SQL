@@ -213,16 +213,19 @@ FROM Big_mart
 GROUP BY Item_Type;
 
 # 42.WRITE a query to show minimum Item_Outlet_Sales BY Outlet_Establishment_Year
-SELECT  Outlet_Establishment_Year, min(Item_Outlet_Sales)Min_sales  
+SELECT  Outlet_Establishment_Year, min(Item_Outlet_Sales) Min_sales  
 FROM Big_mart  
 GROUP BY Outlet_Establishment_Year order by Min_sales desc;
 
 
 # 43.WRITE a query to show maximum Item_Outlet_Sales BY Outlet_Establishment_Year ordered BY descending
-
+SELECT  Outlet_Establishment_Year,  Max(Item_Outlet_Sales)Max_sales FROM Big_mart
+GROUP BY Outlet_Establishment_Year order by Max_sales desc;
 
 # 44.WRITE a query to show average Item_Outlet_Sales BY Outlet_Size AND ORDER it itn descending
-
+SELECT  Outlet_Size, avg(Item_Outlet_Sales) Average_sales  
+FROM Big_mart  
+GROUP BY Outlet_Size order by Average_sales desc;
 
 # 45.WRITE a query to show average Item_Outlet_Sales BY Outlet_Size 
 
