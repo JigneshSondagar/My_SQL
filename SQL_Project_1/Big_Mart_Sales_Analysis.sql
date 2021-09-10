@@ -261,3 +261,8 @@ GROUP BY Outlet_Size order by Average_sales desc;
 
 # 55.WRITE a query to show total Item_Outlet_Sales BY Item_Type WHERE Item_Fat_Content IS ONLY Low Fat & LF
 
+
+
+
+
+
