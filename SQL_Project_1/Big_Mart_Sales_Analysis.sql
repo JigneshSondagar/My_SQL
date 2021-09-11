@@ -233,7 +233,9 @@ FROM Big_mart
 GROUP BY Outlet_Size order by Average_sales desc;
 
 # 46.WRITE a query to show average Item_Outlet_Sales BY Outlet_Type 
-
+SELECT  Outlet_Type, avg(Item_Outlet_Sales)Average_sales  
+FROM Big_mart  
+GROUP BY Outlet_Type order by Average_sales asc;
 
 # 47.WRITE a query to show maximum Item_Outlet_Sales BY Outlet_Type 
 
@@ -260,6 +262,11 @@ GROUP BY Outlet_Size order by Average_sales desc;
 
 
 # 55.WRITE a query to show total Item_Outlet_Sales BY Item_Type WHERE Item_Fat_Content IS ONLY Low Fat & LF
+
+
+SELECT * from Big_mart bm ;
+
+select distinct bm.Item_Outlet_Sales from Big_mart bm order by bm.Item_Outlet_Sales desc limit 1,1;
 
 
 
