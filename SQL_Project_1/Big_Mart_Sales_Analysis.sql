@@ -235,7 +235,7 @@ GROUP BY Outlet_Size order by Average_sales desc;
 # 46.WRITE a query to show average Item_Outlet_Sales BY Outlet_Type 
 SELECT  Outlet_Type, avg(Item_Outlet_Sales)Average_sales  
 FROM Big_mart  
-GROUP BY Outlet_Type order by Average_sales asc;
+GROUP BY Outlet_Type order by Average_sales asc; 
 
 # 47.WRITE a query to show maximum Item_Outlet_Sales BY Outlet_Type 
 
