@@ -238,9 +238,15 @@ FROM Big_mart
 GROUP BY Outlet_Type order by Average_sales asc; 
 
 # 47.WRITE a query to show maximum Item_Outlet_Sales BY Outlet_Type 
+SELECT  Outlet_Type, Max(Item_Outlet_Sales) Maximum_sales  
+FROM Big_mart  
+GROUP BY Outlet_Type order by Average_sales asc; 
 
 
-# 48.WRITE a query to show total Item_Outlet_Sales BY
+# 48.WRITE a query to show total Item_Outlet_Sales BY Outlet_Type
+SELECT  Outlet_Type, SUM(Item_Outlet_Sales) Total_sales  
+FROM Big_mart  
+GROUP BY Outlet_Type order by Average_sales asc;
 
 
 # 49.WRITE a query to show total Item_Outlet_Sales BY Item_Type 
