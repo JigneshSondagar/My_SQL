@@ -250,7 +250,9 @@ GROUP BY Outlet_Type order by Average_sales asc;
 
 
 # 49.WRITE a query to show total Item_Outlet_Sales BY Item_Type 
-
+SELECT  Item_Type, SUM(Item_Outlet_Sales) Item_Type  
+FROM Big_mart  
+GROUP BY Item_Type order by Item_Type asc;
 
 # 50.WRITE a query to show total Item_Outlet_Sales BY
 
