@@ -120,11 +120,58 @@ SELECT * from student s ;
 
 -- Views in SQL
 
+use classicmodels;
+
+SELECT * from customers c ;
+
+CREATE view cust_details
+as
+select c.customerName, c.phone, c.city 
+from customers c ;
+
+SELECT * from cust_details cd ;
+
+SELECT * from productlines p ;
+
+CREATE view product_description
+as
+select p.productName , p.quantityInStock, p.MSRP, pl.textDescription 
+from products p 
+join
+productlines pl
+on
+p.productLine = pl.productLine ;
 
 
 
+SELECT * from product_description pd ;
 
+# Rename Description
 
+rename table product_description to vehical_description;
+
+SELECT * from vehical_description vd ;
+
+# Windows Function
+
+show databases;
+
+use SQL_Assignment_3;
+
+SELECT * from Employee e ;
+
+SELECT e.First_Name,e.Department_No,
+sum(e.Annual_Salary) over (PARTITION by e.Department_No) as Total_salary
+FROM Employee e ;
+
+# Row number
+
+SELECT ROW_NUMBER () over(order by e.Annual_Salary) as row_num,
+e.First_Name , e.Annual_Salary 
+from Employee e 
+order by e.Annual_Salary ;
+
+SELECT e2.First_Name, e2.Annual_Salary from Employee e2 WHERE e2.Annual_Salary =(SELECT max(e.Annual_Salary)from Employee e );
 
 
 
